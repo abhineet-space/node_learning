@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'quotes'></div>
+    <button>New Quotes</button>
+
+    <script>
+        const abc = "";
+
+        let realData = "";
+        const getNewQuotes =async () =>{
+            let rnum = Math.floor(Math.random()*10)
+            console.log(realData[rnum].author);
+        }
+        const getQuotes = async () => {
+        const api = 'https://type.fit/api/quotes';
+        try {
+            let data = await fetch(api);
+            let realData = await data.json();
+
+            getNewQuotes();
+            // console.log(realData.length);
+            // console.log(realData[0].author);
+        }catch(error){}
+    };
+
+    getQuotes();
+    </script>
+</body>
+</html>
