@@ -31,7 +31,6 @@ exports.register = (req,res)=>{
             })
         }else{
             bcrypt.hash(password, 10, function(err, hash) {
-                // Store hash in your password DB.
                 if(err) throw err
                 console.log("Hashed password is: "+hash)
                 conn.query('INSERT INTO users SET ?',{name: name, email: email, password: hash}, (err,results)=>{
